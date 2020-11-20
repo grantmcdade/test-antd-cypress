@@ -5,12 +5,13 @@ interface Props {
   path?: string;
 }
 
-export const Home = (props: Props) => {
+export const Remount = (props: Props) => {
   return (
     <div className="content-container">
-      <Typography.Title level={3}>Home Page</Typography.Title>
+      <Typography.Title level={3}>Remount</Typography.Title>
       <Typography.Paragraph>
-        A simple react test framework
+        Test page for finding out what might
+        cause a component to remount
       </Typography.Paragraph>
     </div>
   );

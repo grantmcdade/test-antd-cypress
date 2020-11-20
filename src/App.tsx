@@ -11,22 +11,17 @@ const Sider = Layout.Sider;
 function App() {
   return (
     <Layout>
-      <Sider theme="dark" width={258} collapsed={false}>
-        <Menu>
+      <Sider width={258} collapsed={false}>
+        <Menu style={{height: '100vh'}}>
           <Menu.Item>
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="dashboard">Dashboard</Link>
+            <Link to="remount">Remount</Link>
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
-        <Header>
-          <div>
-            <Typography.Title level={2}>React App With antd</Typography.Title>
-          </div>
-        </Header>
         <Content>
           <Routes />
         </Content>
