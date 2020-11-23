@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
-import { Layout, Menu, Typography } from "antd";
+import { Layout, Menu } from "antd";
 import { Link } from "@reach/router";
 import { Routes } from "./Routes";
 
-const Header = Layout.Header;
 const Content = Layout.Content;
 const Sider = Layout.Sider;
 
