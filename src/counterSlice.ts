@@ -43,17 +43,18 @@ export const {
 export default counterSlice.reducer;
 
 export const incrementAsync = (): AppThunk => async (dispatch, getState) => {
-  try {
-    const existing = getState();
-    console.log(existing);
-    dispatch(start());
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 1000);
+  const existing = getState();
+  console.log(existing);
+  dispatch(start());
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('Some error');
+    }, 1000);
+  })
+    .then(() => {
+      dispatch(increment());
+    })
+    .catch((error) => {
+      dispatch(counterError(error.toString()));
     });
-    dispatch(increment());
-  } catch (error) {
-    dispatch(counterError(error.toString()));
-  }
 };
