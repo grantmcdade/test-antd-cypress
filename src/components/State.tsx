@@ -21,8 +21,9 @@ export const State = (props: Props) => {
       <Typography.Paragraph>
         Test page for verifying that Flux state works
       </Typography.Paragraph>
-      <Typography>{`Current Count: ${count}`}</Typography>
+      <Typography className="cy-count">{`Current Count: ${count}`}</Typography>
       <Button
+        className="cy-inc"
         onClick={() => {
           dispatch(increment());
         }}
@@ -30,6 +31,7 @@ export const State = (props: Props) => {
         Increase Count
       </Button>
       <Button
+        className="cy-dec"
         onClick={() => {
           dispatch(decrement());
         }}
@@ -37,6 +39,7 @@ export const State = (props: Props) => {
         Decrease Count
       </Button>
       <Button
+        className="cy-inc-async"
         onClick={() => {
           dispatch(incrementAsync());
         }}
