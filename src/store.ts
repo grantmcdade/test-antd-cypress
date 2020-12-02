@@ -1,20 +1,21 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, Action } from '@reduxjs/toolkit'
+import { ThunkAction } from 'redux-thunk';
 
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: 0,
-  reducers: {
-    increment: state => state + 1,
-    decrement: state => state - 1
-  }
-})
-
-export const { increment, decrement } = counterSlice.actions;
+import rootReducer, { RootState } from './rootReducer'
 
 const store = configureStore({
-  reducer: counterSlice.reducer,
-});
+  reducer: rootReducer
+})
 
-store.subscribe(() => console.log(store.getState()))
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('./rootReducer', () => {
+    const newRootReducer = require('./rootReducer').default
+    store.replaceReducer(newRootReducer)
+  })
+}
 
-export default store;
+export type AppDispatch = typeof store.dispatch
+
+export type AppThunk = ThunkAction<void, RootState, unknown, Action<string>>
+
+export default store
