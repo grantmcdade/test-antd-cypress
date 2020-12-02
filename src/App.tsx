@@ -26,6 +26,9 @@ function App() {
         <Menu.Item>
           <Link to="state">State</Link>
         </Menu.Item>
+        <Menu.Item>
+          <Link to="github">Github</Link>
+        </Menu.Item>
       </Menu>
     )
   }

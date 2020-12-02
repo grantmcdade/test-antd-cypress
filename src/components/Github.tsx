@@ -13,7 +13,7 @@ import {
   setCurrentPage,
 } from 'features/issuesDisplay/issuesDisplaySlice'
 
-import './App.css'
+import { RouteComponentProps } from '@reach/router'
 
 // type CurrentDisplay =
 //   | {
@@ -24,7 +24,7 @@ import './App.css'
 //       issueId: number
 //     }
 
-const Github: React.FC = () => {
+const Github: React.FC<RouteComponentProps> = () => {
   const dispatch = useDispatch()
 
   const { org, repo, displayType, page, issueId } = useSelector(
