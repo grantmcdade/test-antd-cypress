@@ -30,6 +30,9 @@ const counterSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    clearError: (state) => {
+      state.error = '';
+    }
   },
 });
 
@@ -38,6 +41,7 @@ export const {
   increment,
   decrement,
   counterError,
+  clearError,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

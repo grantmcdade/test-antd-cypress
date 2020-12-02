@@ -1,8 +1,8 @@
 import { RouteComponentProps } from "@reach/router";
 import { Button, Typography } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, incrementAsync } from "../counterSlice";
+import { clearError, decrement, increment, incrementAsync } from "../counterSlice";
 import type { RootState } from "../rootReducer";
 import { Error } from "./Error";
 
@@ -13,6 +13,12 @@ export const State = (props: Props) => {
   const loading = useSelector((state: RootState) => state.counter.loading);
   const error = useSelector((state: RootState) => state.counter.error);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearError())
+    }
+  }, [dispatch])
 
   return (
     <div className="content-container">
