@@ -1,18 +1,23 @@
-import { RouteComponentProps } from "@reach/router";
-import { Button, Typography } from "antd";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clearError, decrement, increment, incrementAsync } from "../counterSlice";
-import type { RootState } from "../rootReducer";
-import { Error } from "./Error";
+import { RouteComponentProps } from '@reach/router'
+import { Button, Typography } from 'antd'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  clearError,
+  decrement,
+  increment,
+  incrementAsync,
+} from '../counterSlice'
+import type { RootState } from '../rootReducer'
+import { Error } from './Error'
 
 interface Props extends RouteComponentProps {}
 
 export const State = (props: Props) => {
-  const count = useSelector((state: RootState) => state.counter.count);
-  const loading = useSelector((state: RootState) => state.counter.loading);
-  const error = useSelector((state: RootState) => state.counter.error);
-  const dispatch = useDispatch();
+  const count = useSelector((state: RootState) => state.counter.count)
+  const loading = useSelector((state: RootState) => state.counter.loading)
+  const error = useSelector((state: RootState) => state.counter.error)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     return () => {
@@ -31,7 +36,7 @@ export const State = (props: Props) => {
       <Button
         className="cy-inc"
         onClick={() => {
-          dispatch(increment());
+          dispatch(increment())
         }}
       >
         Increase Count
@@ -39,7 +44,7 @@ export const State = (props: Props) => {
       <Button
         className="cy-dec"
         onClick={() => {
-          dispatch(decrement());
+          dispatch(decrement())
         }}
       >
         Decrease Count
@@ -47,12 +52,12 @@ export const State = (props: Props) => {
       <Button
         className="cy-inc-async"
         onClick={() => {
-          dispatch(incrementAsync());
+          dispatch(incrementAsync())
         }}
         loading={loading}
       >
         Increase Count Async
       </Button>
     </div>
-  );
-};
+  )
+}

@@ -1,21 +1,21 @@
-import React from "react";
-import "./App.css";
-import { Layout, Menu, Typography } from "antd";
-import { Link } from "@reach/router";
-import { Routes } from "./Routes";
+import React from 'react'
+import './App.css'
+import { Layout, Menu, Typography } from 'antd'
+import { Link } from '@reach/router'
+import { Routes } from './Routes'
 
-const Header = Layout.Header;
-const Content = Layout.Content;
-const Sider = Layout.Sider;
+const Header = Layout.Header
+const Content = Layout.Content
+const Sider = Layout.Sider
 
 function App() {
-  const isMobile = true;
+  const isMobile = true
 
   const renderMenu = (forMobile?: boolean) => {
     return (
       <Menu
-        style={forMobile ? undefined : { height: "100vh" }}
-        mode={forMobile ? "horizontal" : "vertical-left"}
+        style={forMobile ? undefined : { height: '100vh' }}
+        mode={forMobile ? 'horizontal' : 'vertical-left'}
       >
         <Menu.Item>
           <Link to="/">Home</Link>
@@ -27,8 +27,8 @@ function App() {
           <Link to="state">State</Link>
         </Menu.Item>
       </Menu>
-    );
-  };
+    )
+  }
 
   return (
     <Layout>
@@ -37,14 +37,16 @@ function App() {
       </Sider>
       <Layout>
         <Header>
-          <Typography.Title level={2} style={{ color: '#fff' }}>Test Harness</Typography.Title>
+          <Typography.Title level={2} style={{ color: '#fff' }}>
+            Test Harness
+          </Typography.Title>
         </Header>
         <Content>
           <Routes />
         </Content>
       </Layout>
     </Layout>
-  );
+  )
 }
 
-export default App;
+export default App

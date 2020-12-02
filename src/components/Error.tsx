@@ -1,21 +1,19 @@
-import { Alert, notification } from 'antd';
+import { Alert, notification } from 'antd'
 import React, { useEffect } from 'react'
 
 interface Props {
-  message: string;
+  message: string
 }
 
 export const Error = (props: Props) => {
-  const { message } = props;
+  const { message } = props
 
   useEffect(() => {
     notification.error({
       message,
-      description: 'There was an error!'
+      description: 'There was an error!',
     })
   }, [message])
 
-  return (
-    <Alert type="error" message={message} />
-  )
+  return <Alert type="error" message={message} />
 }
