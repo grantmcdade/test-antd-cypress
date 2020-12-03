@@ -8,6 +8,7 @@ import { IssuesPageHeader } from './IssuesPageHeader'
 import { IssuesList } from './IssuesList'
 import { IssuePagination, OnPageChangeCallback } from './IssuePagination'
 import { fetchIssues } from './issuesSlice'
+import { Typography } from 'antd'
 
 interface ILProps {
   org: string
@@ -50,7 +51,7 @@ export const IssuesListPage = ({
   if (issuesError) {
     return (
       <div>
-        <h1>Something went wrong...</h1>
+        <Typography.Title level={3}>Something went wrong...</Typography.Title>
         <div>{issuesError.toString()}</div>
       </div>
     )
@@ -59,7 +60,7 @@ export const IssuesListPage = ({
   const currentPage = Math.min(pageCount, Math.max(page, 1)) - 1
 
   let renderedList = isLoading ? (
-    <h3>Loading...</h3>
+    <Typography.Title level={3}>Loading...</Typography.Title>
   ) : (
     <IssuesList issues={issues} showIssueComments={showIssueComments} />
   )

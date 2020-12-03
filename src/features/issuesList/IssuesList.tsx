@@ -3,7 +3,7 @@ import React from 'react'
 import { Issue } from 'api/githubAPI'
 import { IssueListItem } from './IssueListItem'
 
-import styles from './IssuesList.module.css'
+import { List } from 'antd'
 
 interface Props {
   issues: Issue[]
@@ -11,11 +11,12 @@ interface Props {
 }
 
 export const IssuesList = ({ issues, showIssueComments }: Props) => {
-  const renderedIssues = issues.map((issue) => (
-    <li key={issue.id}>
-      <IssueListItem {...issue} showIssueComments={showIssueComments} />
-    </li>
-  ))
-
-  return <ul className={styles.issuesList}>{renderedIssues}</ul>
+  return (
+    <List
+      dataSource={issues}
+      renderItem={issue => (
+        <IssueListItem key={issue.id} {...issue} showIssueComments={showIssueComments} />
+      )}
+    />
+  )
 }

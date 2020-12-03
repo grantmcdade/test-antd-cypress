@@ -14,6 +14,7 @@ import { fetchComments } from './commentsSlice'
 
 import styles from './IssueDetailsPage.module.css'
 import './IssueDetailsPage.css'
+import { Button } from 'antd'
 
 interface IDProps {
   org: string
@@ -63,9 +64,7 @@ export const IssueDetailsPage = ({
   let content
 
   const backToIssueListButton = (
-    <button className="pure-button" onClick={showIssuesList}>
-      Back to Issues List
-    </button>
+    <Button onClick={showIssuesList}>Back to Issues List</Button>
   )
 
   if (issue === null) {

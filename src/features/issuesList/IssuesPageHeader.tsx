@@ -1,4 +1,5 @@
 import React from 'react'
+import { Typography } from 'antd'
 
 interface OrgProps {
   org: string
@@ -30,17 +31,17 @@ export function IssuesPageHeader({
 }: HeaderProps) {
   if (openIssuesCount === -1) {
     return (
-      <h1>
+      <Typography.Title level={4}>
         Open issues for <OrgRepo org={org} repo={repo} />
-      </h1>
+      </Typography.Title>
     )
   } else {
     const pluralizedIssue = openIssuesCount === 1 ? 'issue' : 'issues'
     return (
-      <h1>
+      <Typography.Title level={4}>
         <span className="header__openIssues">{openIssuesCount}</span> open{' '}
         {pluralizedIssue} for <OrgRepo org={org} repo={repo} />
-      </h1>
+      </Typography.Title>
     )
   }
 }
