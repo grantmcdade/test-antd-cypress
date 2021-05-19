@@ -29,6 +29,9 @@ function App() {
         <Menu.Item>
           <Link to="github">Github</Link>
         </Menu.Item>
+        <Menu.Item>
+          <Link to="numbers">Numbers</Link>
+        </Menu.Item>
       </Menu>
     )
   }
