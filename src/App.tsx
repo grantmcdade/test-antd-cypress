@@ -15,7 +15,7 @@ function App() {
     return (
       <Menu
         style={forMobile ? undefined : { height: '100vh' }}
-        mode={forMobile ? 'horizontal' : 'vertical-left'}
+        mode={forMobile ? 'horizontal' : 'vertical'}
       >
         <Menu.Item>
           <Link to="/">Home</Link>
